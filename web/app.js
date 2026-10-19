@@ -1,0 +1,5 @@
+const status = document.querySelector('#status'); const library = document.querySelector('#library');
+async function refresh() { const movies = await fetch('/api/library').then(r => r.json()); library.innerHTML = movies.length ? movies.map(m => `<article><b>${escapeHtml(m.title)}</b><br><small>${escapeHtml(m.description || '')}</small></article>`).join('') : '<p>Noch keine Videos vorhanden.</p>'; }
+function escapeHtml(value) { const node = document.createElement('span'); node.textContent = value; return node.innerHTML; }
+document.querySelector('#upload').addEventListener('submit', async event => { event.preventDefault(); status.textContent = 'Upload läuft …'; const form = new FormData(event.currentTarget); const token = document.querySelector('#token').value; const response = await fetch('/api/movies', { method: 'POST', headers: { Authorization: `Bearer ${token}` }, body: form }); status.textContent = response.ok ? 'Hochgeladen.' : `Fehler: ${(await response.json()).error || response.status}`; if (response.ok) { event.currentTarget.reset(); await refresh(); } });
+refresh();
