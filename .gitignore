@@ -1,6 +1,7 @@
 server/node_modules/
 server/data/
 server/.env
+server/__pycache__/
 android/.gradle/
 android/build/
 android/app/build/
