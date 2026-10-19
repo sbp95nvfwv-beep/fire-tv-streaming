@@ -27,6 +27,8 @@ Für Linux enthält das Projekt `start-linux.sh` und `README-LINUX.md`. Das Skri
 
 GitHub Actions erstellt bei jedem Push eine Debug-APK als Workflow-Artefakt. Sobald ein Tag wie `v0.1.0` nach GitHub gepusht wird, erstellt der Workflow ein GitHub Release und hängt `app-debug.apk` an. Debug-APKs sind für private Tests geeignet; für eine Verteilung außerhalb des eigenen Kreises sollte die App mit einem eigenen Android-Keystore als Release signiert werden.
 
+Version `v0.1.3` behebt einen Startabsturz auf Fire TV durch ein korrigiertes AppCompat-Theme.
+
 ## Sicherheit
 
 Der Upload-Endpunkt verlangt den `ADMIN_TOKEN`; die Fire-TV-Wiedergabe ist im Heimnetz bewusst ohne Token. Setze den Dienst nicht ohne HTTPS, Benutzerkonten und einen Reverse Proxy direkt ins Internet.
