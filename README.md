@@ -19,6 +19,10 @@ Die App nutzt progressive HTTP-Streams. Für zuverlässige Wiedergabe sollten Up
 
 PC und Fire TV müssen im gleichen WLAN sein. Die App lädt die Mediathek bei jedem Öffnen neu; neue Uploads erscheinen damit ohne neues APK.
 
+## Linux-PC als Medienserver
+
+Für Linux enthält das Projekt `start-linux.sh` und `README-LINUX.md`. Das Skript erzeugt beim ersten Start einen Admin-Token, startet den Docker-Server und öffnet die Upload-Seite. Die Fire-TV-App verbindet sich mit der LAN-Adresse dieses PCs.
+
 ## APK und GitHub Release
 
 GitHub Actions erstellt bei jedem Push eine Debug-APK als Workflow-Artefakt. Sobald ein Tag wie `v0.1.0` nach GitHub gepusht wird, erstellt der Workflow ein GitHub Release und hängt `app-debug.apk` an. Debug-APKs sind für private Tests geeignet; für eine Verteilung außerhalb des eigenen Kreises sollte die App mit einem eigenen Android-Keystore als Release signiert werden.
